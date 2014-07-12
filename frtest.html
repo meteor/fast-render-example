@@ -1,0 +1,31 @@
+<head>
+  <title>frtest</title>
+</head>
+
+<body>
+  {{>loginButtons}}
+
+  {{#if currentUser}}
+    {{> messages}}
+    {{> sendMessage}}
+  {{/if}}
+</body>
+
+<template name="messages">
+  <h1>Your messages</h1>
+  {{#each myMessages}}
+    <p>
+      <b>From: {{sender}}</b><br />
+      {{message}}
+    </p>
+  {{else}}
+    <p>(none)</p>
+  {{/each}}
+</template>
+
+<template name="sendMessage">
+  <h1>Send a message</h1>
+  To: <input type="email" id="email" /><br />
+  Message: <input type="text" id="message" /><br />
+  <input type="submit" id="send" value="Send" />
+</template>
